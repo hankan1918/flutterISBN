@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:isbn_recoder/screens/barcode_scan_screen.dart';
 import 'package:isbn_recoder/screens/book_list_screen.dart';
 import 'package:isbn_recoder/screens/home_screen.dart';
 
@@ -16,7 +17,8 @@ class App extends StatefulWidget {
 class _AppState extends State<App> {
   int _currentIndex = 0;
   final List<Widget> _screens = [
-    HomeScreen(),
+    BarcodeScanScreen(),
+    // HomeScreen(),
     BookListScreen(),
   ];
 
