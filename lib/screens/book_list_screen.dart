@@ -1,3 +1,4 @@
+import 'package:barcode_scan2/barcode_scan2.dart';
 import 'package:flutter/material.dart';
 import 'package:isbn_recoder/models/book_model.dart';
 import 'package:isbn_recoder/services/api_service.dart';
@@ -13,6 +14,20 @@ class _BookListScreenState extends State<BookListScreen> {
   List<BookModel> books = [];
   bool isLoading = false;
   final TextEditingController _isbncontroller = TextEditingController();
+
+  Future<void> scanBarcode() async {
+    try {
+      var result = await BarcodeScanner.scan();
+      setState(() {
+        _isbncontroller.text = result.rawContent;
+        searchBooks();
+      });
+    } catch (e) {
+      setState(() {
+        _isbncontroller.text = "";
+      });
+    }
+  }
 
   void searchBooks() async {
     setState(() => isLoading = true);
@@ -40,11 +55,12 @@ class _BookListScreenState extends State<BookListScreen> {
                   child: TextField(
                     controller: _isbncontroller,
                     decoration: InputDecoration(labelText: "ISBN"),
+                    onChanged: (value) => searchBooks(),
                   ),
                 ),
                 ElevatedButton(
-                  onPressed: searchBooks,
-                  child: Text("Search"),
+                  onPressed: scanBarcode,
+                  child: Text("Scan"),
                 ),
               ],
             ),
