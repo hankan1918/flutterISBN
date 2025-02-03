@@ -10,6 +10,10 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    return Text("This is home screen.");
+    return Scaffold(
+      body: ListView(
+        children: [],
+      ),
+    );
   }
 }
