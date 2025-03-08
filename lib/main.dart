@@ -21,7 +21,6 @@ class _AppState extends State<App> {
   final List<Widget> _screens = [
     HomeScreen(),
     BookListScreen(),
-    TestScreen(),
   ];
 
   @override
