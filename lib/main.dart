@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:isbn_recoder/screens/book_list_screen.dart';
 import 'package:isbn_recoder/screens/home_screen.dart';
+import 'package:isbn_recoder/screens/test_screen.dart';
 
 void main() {
   runApp(const App());
@@ -14,10 +15,11 @@ class App extends StatefulWidget {
 }
 
 class _AppState extends State<App> {
-  int _currentIndex = 0;
+  int _currentIndex = 2;
   final List<Widget> _screens = [
     HomeScreen(),
     BookListScreen(),
+    TestScreen(),
   ];
 
   @override
@@ -34,6 +36,7 @@ class _AppState extends State<App> {
               icon: Icon(Icons.search),
               label: "Search",
             ),
+            BottomNavigationBarItem(icon: Icon(Icons.recycling), label: "Test"),
           ],
           currentIndex: _currentIndex,
           onTap: (index) {
