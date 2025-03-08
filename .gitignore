@@ -46,3 +46,6 @@ app.*.map.json
 
 # API Key related
 /lib/apis/keys.dart
+
+# Reference related
+/lib/widgets/ticket_painer_search.dart
